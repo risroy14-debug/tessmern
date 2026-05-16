@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo&family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+/* Modifikasi agar video menutup seluruh screen dengan rasio aman */
+.container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.container .blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  animation: goblur 1s forwards linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  z-index: 10;
+}
+
+.blur .pertama {
+  font-family: "Secular One", sans-serif;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 5px black;
+  animation: fadeIn 1s forwards linear;
+  animation-delay: 0.5s; /* Dipercepat sedikit agar transisi lebih smooth di React */
+  opacity: 0;
+}
+
+.blur .kedua {
+  font-family: "Exo", sans-serif;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 5px black;
+  animation: fadeIn 1s forwards linear;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+.blur img {
+  margin-top: 20px;
+  max-width: 250px;
+  border-radius: 3px;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+  cursor: pointer;
+  animation: fadeIn 1s forwards linear;
+  animation-delay: 1.5s;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes goblur {
+  from {
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+  }
+  to {
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+}
+
+@media (min-width: 600px) {
+  /* Membatasi container tengah agar tetap rapi di desktop */
+  .container {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+}
+
+.container .popup-login {
+  background: rgba(0, 0, 0, 0.65);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modifikasi Box Modal agar presisi di tengah layar */
+.popup-box-login-fb {
+  background: #eceff6;
+  width: 90%;
+  max-width: 330px;
+  height: auto;
+  text-align: center;
+  font-family: "Teko", sans-serif;
+  color: #000;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+.navbar-fb {
+  background: #3b5998;
+  height: auto;
+  width: 100%;
+  padding: 8px;
+}
+
+.navbar-fb img {
+  width: 110px;
+  margin: 0 auto;
+  display: block;
+}
+
+.content-box-fb {
+  width: 100%;
+  padding: 0 15px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.content-box-fb .alert {
+  width: calc(100% + 30px);
+  left: -15px;
+  position: relative;
+  padding: 8px;
+  background: #f02849;
+  color: #fff;
+  font-size: 13px;
+  font-family: "Roboto", sans-serif;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.content-box-fb img {
+  width: 70px;
+  height: 70px;
+  margin: 15px auto 0 auto;
+  border-radius: 12px;
+  display: block;
+}
+
+.txt-login-fb {
+  width: 100%;
+  height: auto;
+  margin: 10px auto 15px auto;
+  color: #90949c;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  display: block;
+  line-height: 1.3;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  height: auto;
+  padding: 12px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Lato", sans-serif;
+  border: 1px solid #bdbebf;
+  outline: none;
+}
+
+.login-form input[type="text"] {
+  margin: 0;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+}
+
+.login-form input[type="password"] {
+  margin: 0;
+  border-radius: 0 0 4px 4px;
+}
+
+.btn-login-fb {
+  background: #1778f2;
+  width: 100%;
+  height: auto;
+  margin: 12px auto;
+  padding: 10px;
+  color: #fff;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #3578e5;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-login-fb.disabled {
+  pointer-events: none;
+  background: #8b9dc3;
+  border: 1px solid #8b9dc3;
+  cursor: not-allowed;
+}
+
+.txt-create-account, .txt-not-now, .txt-forgotten-password {
+  width: 100%;
+  padding: 4px;
+  color: #3b5998;
+  font-size: 13.5px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  cursor: pointer;
+}
+
+.txt-forgotten-password {
+  margin-bottom: 20px;
+  color: #7596c8;
+}
+
+.language-box {
+  width: 100%;
+  padding: 10px 5px;
+  background: #f5f6f7;
+  border-top: 1px solid #e5e5e5;
+}
+
+.language-name {
+  width: 42%;
+  margin: 3px;
+  color: #3b5998;
+  font-size: 11px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  display: inline-block;
+}
+
+.language-name i {
+  color: #90949c;
+  font-size: 11px;
+}
+
+.language-name-active {
+  color: #90949c;
+  font-weight: bold;
+}
+
+.copyrights {
+  width: 100%;
+  padding: 8px 0;
+  color: #90949c;
+  font-size: 11px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  background: #f5f6f7;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Penyelarasan Animasi Tambahan */
+.animated {
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+}
+.animated.fadeIn {
+  animation-name: fadeIn;
+}
