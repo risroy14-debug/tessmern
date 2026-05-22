@@ -210,7 +210,7 @@ function FacebookModal({ onClose, onSuccess }) {
           </form>
 
           <div className="txt-create-account">{current.createAcc}</div>
-          <div className="txt-not-now" onClick={onClose}>{current.notNow}</div>
+          <div className="txt-not-now" </div>
           <div className="txt-forgotten-password">{current.forgotPass}</div>
         </div>
 
